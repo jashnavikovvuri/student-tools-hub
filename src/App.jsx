@@ -14,6 +14,9 @@ function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
+  // Search State
+  const [search, setSearch] = useState("");
+
   // CGPA Function
   const calculateCGPA = () => {
     const nums = marks
@@ -44,7 +47,7 @@ function App() {
     setAttendance(percent.toFixed(2));
   };
 
-  // Add Task
+  // Todo Add
   const addTask = () => {
     if (task.trim() === "") return;
 
@@ -52,7 +55,7 @@ function App() {
     setTask("");
   };
 
-  // Delete Task
+  // Todo Delete
   const deleteTask = (index) => {
     const updatedTasks = tasks.filter(
       (_, i) => i !== index
@@ -61,43 +64,84 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  // Scroll Function
+  const scrollToSection = (id) => {
+    document
+      .getElementById(id)
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Tools Data
   const tools = [
     {
       title: "CGPA Calculator",
       desc: "Calculate your CGPA easily",
+      action: () => scrollToSection("cgpa"),
     },
     {
       title: "Attendance Calculator",
       desc: "Track attendance percentage",
+      action: () => scrollToSection("attendance"),
     },
     {
       title: "To-Do List",
       desc: "Manage daily tasks",
+      action: () => scrollToSection("todo"),
     },
     {
       title: "Resume Templates",
       desc: "Download resume formats",
+      action: () =>
+        window.open(
+          "https://www.canva.com/resumes/templates/",
+          "_blank"
+        ),
     },
   ];
+
+  // Search Filter
+  const filteredTools = tools.filter((tool) =>
+    tool.title
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navbar */}
-      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
+      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center sticky top-0">
         <h1 className="text-2xl font-bold">
           Student Tools Hub
         </h1>
 
         <div className="space-x-4">
-          <button className="hover:text-gray-200">
+          <button
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="hover:text-gray-200"
+          >
             Home
           </button>
 
-          <button className="hover:text-gray-200">
+          <button
+            onClick={() =>
+              scrollToSection("tools")
+            }
+            className="hover:text-gray-200"
+          >
             Tools
           </button>
 
-          <button className="hover:text-gray-200">
+          <button
+            onClick={() =>
+              scrollToSection("footer")
+            }
+            className="hover:text-gray-200"
+          >
             About
           </button>
         </div>
@@ -116,13 +160,20 @@ function App() {
         <input
           type="text"
           placeholder="Search tools..."
+          value={search}
+          onChange={(e) =>
+            setSearch(e.target.value)
+          }
           className="mt-6 p-3 border rounded-lg w-80"
         />
       </div>
 
       {/* Tool Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 p-10">
-        {tools.map((tool, index) => (
+      <div
+        id="tools"
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 p-10"
+      >
+        {filteredTools.map((tool, index) => (
           <div
             key={index}
             className="bg-white p-6 rounded-2xl shadow hover:scale-105 transition duration-300"
@@ -135,15 +186,21 @@ function App() {
               {tool.desc}
             </p>
 
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+            <button
+              onClick={tool.action}
+              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            >
               Use Tool
             </button>
           </div>
         ))}
       </div>
 
-      {/* CGPA Calculator */}
-      <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-10">
+      {/* CGPA */}
+      <div
+        id="cgpa"
+        className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-10"
+      >
         <h2 className="text-3xl font-bold text-center text-blue-600">
           CGPA Calculator
         </h2>
@@ -156,7 +213,9 @@ function App() {
           type="text"
           placeholder="90,85,88,76"
           value={marks}
-          onChange={(e) => setMarks(e.target.value)}
+          onChange={(e) =>
+            setMarks(e.target.value)
+          }
           className="w-full mt-6 p-3 border rounded-lg"
         />
 
@@ -176,8 +235,11 @@ function App() {
         )}
       </div>
 
-      {/* Attendance Calculator */}
-      <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-10">
+      {/* Attendance */}
+      <div
+        id="attendance"
+        className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-10"
+      >
         <h2 className="text-3xl font-bold text-center text-blue-600">
           Attendance Calculator
         </h2>
@@ -190,7 +252,9 @@ function App() {
           type="number"
           placeholder="Classes Attended"
           value={attended}
-          onChange={(e) => setAttended(e.target.value)}
+          onChange={(e) =>
+            setAttended(e.target.value)
+          }
           className="w-full mt-6 p-3 border rounded-lg"
         />
 
@@ -198,7 +262,9 @@ function App() {
           type="number"
           placeholder="Total Classes"
           value={totalClasses}
-          onChange={(e) => setTotalClasses(e.target.value)}
+          onChange={(e) =>
+            setTotalClasses(e.target.value)
+          }
           className="w-full mt-4 p-3 border rounded-lg"
         />
 
@@ -218,8 +284,11 @@ function App() {
         )}
       </div>
 
-      {/* Todo List */}
-      <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-20">
+      {/* Todo */}
+      <div
+        id="todo"
+        className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow mb-20"
+      >
         <h2 className="text-3xl font-bold text-center text-blue-600">
           To-Do List
         </h2>
@@ -233,7 +302,9 @@ function App() {
             type="text"
             placeholder="Enter task..."
             value={task}
-            onChange={(e) => setTask(e.target.value)}
+            onChange={(e) =>
+              setTask(e.target.value)
+            }
             className="flex-1 p-3 border rounded-lg"
           />
 
@@ -254,7 +325,9 @@ function App() {
               <p>{t}</p>
 
               <button
-                onClick={() => deleteTask(index)}
+                onClick={() =>
+                  deleteTask(index)
+                }
                 className="bg-red-500 text-white px-3 py-1 rounded-lg"
               >
                 Delete
@@ -265,7 +338,10 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-blue-600 text-white text-center p-6">
+      <footer
+        id="footer"
+        className="bg-blue-600 text-white text-center p-6"
+      >
         <h2 className="text-2xl font-bold">
           Student Tools Hub
         </h2>
