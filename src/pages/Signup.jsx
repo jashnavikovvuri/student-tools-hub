@@ -1,25 +1,43 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
 
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+
+import { auth, db } from "../firebase";
 function Signup() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [username, setUsername] = useState("");
+  
   const handleSignup = async (e) => {
   e.preventDefault();
 
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+console.log(userCredential.user.uid);
+    await setDoc(
+  doc(db, "users", userCredential.user.uid),
+  {
+    username: username,
+    email: email,
+  }
+);
+
+console.log("Username saved successfully");
+console.log("User saved to Firestore ✅");
     alert("Account Created Successfully ✅");
     navigate("/");
-  } catch (error) {
-    alert(error.message);
-  }
-};
+ } catch (error) {
+  console.log(error);
+  alert(error.code + " : " + error.message);
+}}
 
   return (
     <div
@@ -41,7 +59,17 @@ function Signup() {
         }}
       >
         <h2>Create Account</h2>
-
+<input
+  type="text"
+  placeholder="Username"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginTop: "15px",
+  }}
+/>
         <input
           type="email"
           placeholder="Email"

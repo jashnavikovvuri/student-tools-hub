@@ -8,7 +8,7 @@ function Home() {
 // CGPA States
 const [marks, setMarks] = useState("");
 const [cgpa, setCgpa] = useState("");
-
+const [menuOpen, setMenuOpen] = useState(false);
 // Attendance States
 const [attended, setAttended] = useState("");
 const [totalClasses, setTotalClasses] = useState("");
@@ -189,48 +189,74 @@ const filteredTools = tools.filter((tool) =>
   }`}
 >
       {/* Navbar */}
-      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center sticky top-0">
-        <h1 className="text-2xl font-bold">
-          Student Tools Hub
-        </h1>
-
-        <div className="flex items-center gap-5">
-
-  <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-    Home
-  </button>
-
-  <button onClick={() => scrollToSection("tools")}>
-    Tools
-  </button>
-
-  <button onClick={() => scrollToSection("footer")}>
-    About
-  </button>
+      <nav className="bg-blue-600 text-white p-4 flex items-center sticky top-0">
 
   <button
-    onClick={() => navigate("/profile")}
-    className="hover:text-gray-200"
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-3xl"
   >
-    👤 Profile
+    ☰
   </button>
 
-  <button
-    onClick={() => setDarkMode(!darkMode)}
-    className="bg-gray-800 text-white px-4 py-2 rounded-lg"
-  >
-    {darkMode ? "☀ Light" : "🌙 Dark"}
-  </button>
+  <h1 className="text-2xl font-bold ml-5">
+    Student Tools Hub
+  </h1>
 
-  <button
-    onClick={handleLogout}
-    className="bg-red-500 px-4 py-2 rounded-lg"
-  >
-    Logout
-  </button>
+</nav>
+{menuOpen && (
+  <div className="fixed left-0 top-0 w-64 h-screen bg-gray-900 text-white p-6 shadow-lg z-50">
 
-</div>
-      </nav>
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="text-2xl mb-8"
+    >
+      ✖
+    </button>
+
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="block w-full text-left py-3 hover:text-blue-400"
+    >
+      🏠 Home
+    </button>
+
+    <button
+      onClick={() => scrollToSection("tools")}
+      className="block w-full text-left py-3 hover:text-blue-400"
+    >
+      🛠 Tools
+    </button>
+
+    <button
+      onClick={() => navigate("/profile")}
+      className="block w-full text-left py-3 hover:text-blue-400"
+    >
+      👤 Profile
+    </button>
+
+    <button
+      onClick={() => scrollToSection("footer")}
+      className="block w-full text-left py-3 hover:text-blue-400"
+    >
+      ℹ About
+    </button>
+
+    <button
+      onClick={() => setDarkMode(!darkMode)}
+      className="block w-full text-left py-3 hover:text-blue-400"
+    >
+      {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+    </button>
+
+    <button
+      onClick={handleLogout}
+      className="block w-full text-left py-3 text-red-400 hover:text-red-300"
+    >
+      🚪 Logout
+    </button>
+
+  </div>
+)}
 
       {/* Hero */}
       <div className="text-center py-16 bg-white shadow">
