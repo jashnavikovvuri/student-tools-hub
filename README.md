@@ -1,16 +1,178 @@
-# React + Vite
+# 👋 Hi, I'm Jashnavi!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🎓 AI & Data Science Student | 💻 Developer | 🤖 AI & ML Enthusiast
 
-Currently, two official plugins are available:
+I'm a B.Tech student specializing in **Artificial Intelligence & Data Science**, passionate about building practical applications using **Python, Machine Learning, Data Science, and Web Development**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+I enjoy transforming ideas into real-world projects and continuously improving my technical and problem-solving skills.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 About Me
 
-## Expanding the ESLint configuration
+* 🎓 B.Tech — Artificial Intelligence & Data Science
+* 🤖 Interested in Artificial Intelligence & Machine Learning
+* 📊 Interested in Data Science & Data Analytics
+* 💻 Building full-stack and AI-powered applications
+* 🌱 Currently improving my problem-solving and development skills
+* 🎯 Preparing for software/technical placement opportunities
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Technical Skills
+
+### Programming
+
+* Python
+* JavaScript
+
+### AI & Data Science
+
+* Machine Learning
+* Pandas
+* NumPy
+* Scikit-learn
+* Data Analysis
+* Data Visualization
+
+### Web Development
+
+* HTML
+* CSS
+* JavaScript
+* React
+* Flask
+
+### Database
+
+* SQLite
+* PostgreSQL
+* MongoDB
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+* Google Colab
+
+---
+
+## 💼 Internships
+
+### 🌐 HorizonTechX — Virtual Internship
+
+**Frontend Development / Data Analytics**
+
+Worked on practical development and data-related tasks including:
+
+* Web Scraping
+* Exploratory Data Analysis
+* Data Visualization
+* Sentiment Analysis
+* Image Gallery
+* Calculator
+* Portfolio Website
+* Music Player
+
+---
+
+## 🚀 Featured Projects
+
+### 🤖 AI Medical Image Diagnosis
+
+An AI-powered application designed to analyze medical images and assist with disease detection.
+
+**Technologies:** Python, TensorFlow, Keras, Flask, Machine Learning
+
+---
+
+### 🎓 Student Tools Hub
+
+A student-focused web application providing useful academic and productivity tools in one platform.
+
+**Technologies:** React, JavaScript, Firebase
+
+**Features include:**
+
+* AI Notes
+* AI Quiz
+* Resume Analyzer
+* Study Planner
+* Pomodoro
+* Flashcards
+* AI Code Helper
+* Interview Preparation
+* Projects
+* AI Project Bot
+
+---
+
+### 🤖 AI Project Bot
+
+An intelligent project idea recommendation tool that suggests multiple project ideas based on:
+
+* Stream
+* Project level
+* Technology
+* Project type
+* Student's own idea
+
+**Technologies:** React, JavaScript
+
+---
+
+### 📊 Student Performance Predictor
+
+A machine learning project that predicts student academic performance using relevant academic factors.
+
+**Technologies:** Python, Pandas, NumPy, Scikit-learn, Flask
+
+---
+
+### 📄 AI Resume Analyzer
+
+An application designed to analyze resumes and provide useful insights for improving job compatibility.
+
+**Technologies:** Python, Machine Learning, NLP, Flask
+
+---
+
+## 📜 Certifications & Learning
+
+* Artificial Intelligence & Machine Learning
+* Data Science & Data Analytics
+* Python
+* Web Development
+* Machine Learning
+
+---
+
+## 📈 Currently Learning
+
+```text
+Machine Learning
+Data Science
+React
+Full-Stack Development
+Data Structures & Algorithms
+Problem Solving
+```
+
+---
+
+## 🔗 Connect With Me
+
+* 💼 LinkedIn: [Add your LinkedIn URL]
+* 🐙 GitHub: [Add your GitHub URL]
+* 📧 Email: [Add your professional email]
+
+---
+
+## 💡 My Goal
+
+> To build impactful technology solutions, strengthen my problem-solving skills, and grow as an AI & Data Science professional.
+
+---
+
+⭐ **Thanks for visiting my profile!**
