@@ -15,9 +15,10 @@ import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
 import ProjectWorkspace from "./pages/ProjectWorkspace";
 import CGPACalculator from "./pages/CGPACalculator";
+import AIProjectBot from "./pages/AIProjectBot";
 
 function App() {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,6 +31,7 @@ function App() {
   if (loading) {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white">
+
         <div className="text-4xl font-bold text-orange-500 mb-4">
           JK
         </div>
@@ -39,33 +41,52 @@ function App() {
         </div>
 
         <div className="mt-4 w-20 h-1 bg-orange-500 animate-pulse rounded-full"></div>
+
       </div>
     );
   }
+
   return (
     <BrowserRouter>
+
       <Routes>
 
         {/* =========================
             HOME / DASHBOARD
         ========================= */}
 
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        <Route
+          path="/home"
+          element={<Home />}
+        />
 
         {/* =========================
             PROFILE
         ========================= */}
 
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={<Profile />}
+        />
 
         {/* =========================
             AI TOOLS
         ========================= */}
 
-        <Route path="/ai-notes" element={<AINotes />} />
+        <Route
+          path="/ai-notes"
+          element={<AINotes />}
+        />
 
-        <Route path="/ai-quiz" element={<AIQuiz />} />
+        <Route
+          path="/ai-quiz"
+          element={<AIQuiz />}
+        />
 
         <Route
           path="/resume-analyzer"
@@ -117,6 +138,15 @@ function App() {
         />
 
         {/* =========================
+            AI PROJECT BOT
+        ========================= */}
+
+        <Route
+          path="/ai-project-bot"
+          element={<AIProjectBot />}
+        />
+
+        {/* =========================
             CGPA CALCULATOR
         ========================= */}
 
@@ -126,6 +156,7 @@ function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }

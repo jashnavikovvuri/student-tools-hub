@@ -674,6 +674,23 @@ function Home() {
                   >
                     🚀 My Projects
                   </button>
+                  <button
+  type="button"
+  onClick={() => navigate("/ai-project-bot")}
+  className="
+    w-full
+    text-left
+    px-4
+    py-2
+    rounded-lg
+    text-sm
+    text-gray-400
+    hover:text-orange-400
+    hover:bg-white/5
+  "
+>
+  🤖 AI Project Bot
+</button>
 
                 </div>
               )}
