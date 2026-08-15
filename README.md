@@ -163,9 +163,9 @@ Problem Solving
 
 ## 🔗 Connect With Me
 
-* 💼 LinkedIn: [Add your LinkedIn URL]
+* 💼 LinkedIn: https://www.linkedin.com/in/jashnavi-kovvuri-44aa68413/
 * 🐙 GitHub: [Add your GitHub URL]
-* 📧 Email: [Add your professional email]
+* 📧 Email: jashnavikovvuri@gmail.com
 
 ---
 
