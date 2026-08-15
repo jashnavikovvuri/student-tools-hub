@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 function Profile() {
@@ -38,11 +37,22 @@ function Profile() {
 
   // Save Username
   const saveUsername = async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      navigate("/");
+      return;
+    }
+
     try {
-      await setDoc(doc(db, "users", auth.currentUser.uid), {
-        username: username,
-        email: auth.currentUser.email,
-      });
+      await setDoc(
+        doc(db, "users", user.uid),
+        {
+          username: username,
+          email: user.email,
+        },
+        { merge: true }
+      );
 
       alert("Username Saved Successfully ✅");
     } catch (error) {
@@ -51,15 +61,11 @@ function Profile() {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    navigate("/");
-  };
-
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       <div className="bg-white shadow-xl rounded-2xl p-8 w-96">
 
+        {/* Profile Icon */}
         <div className="flex justify-center">
           <div className="w-24 h-24 rounded-full bg-blue-600 flex items-center justify-center text-white text-4xl">
             👤
@@ -70,8 +76,8 @@ function Profile() {
           My Profile
         </h2>
 
+        {/* Username */}
         <div className="mt-6">
-
           <p className="text-gray-500">Username</p>
 
           <input
@@ -88,9 +94,9 @@ function Profile() {
           >
             Save Username
           </button>
-
         </div>
 
+        {/* Email */}
         <div className="mt-6">
           <p className="text-gray-500">Email</p>
 
@@ -99,18 +105,12 @@ function Profile() {
           </h3>
         </div>
 
+        {/* Back to Home */}
         <button
           onClick={() => navigate("/home")}
           className="w-full mt-8 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
         >
           Back to Home
-        </button>
-
-        <button
-          onClick={handleLogout}
-          className="w-full mt-4 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700"
-        >
-          Logout
         </button>
 
       </div>

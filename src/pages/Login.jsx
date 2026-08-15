@@ -90,8 +90,6 @@ const handleForgotPassword = async () => {
 >
   Login
 </button>
-
-{/* 👇 EE CODE IKKADA PASTE CHEYYI */}
 <p
   onClick={handleForgotPassword}
   style={{
